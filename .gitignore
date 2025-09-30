@@ -71,3 +71,11 @@ out/
 .env
 .env.local
 .env.*.local
+
+# ==========================
+# Frontend files
+# ==========================
+/frontend/package-lock.json
+/frontend/package.json
+/frontend/public/
+/frontend/node_modules/
