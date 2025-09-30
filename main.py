@@ -1,7 +1,7 @@
 import os
 
-from Model.player import Player
-from Model.tournament import Tournament
+from player import Player
+from tournament import Tournament
 
 
 def main():
