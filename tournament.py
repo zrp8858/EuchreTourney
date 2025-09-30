@@ -11,28 +11,34 @@ class Tournament:
 
     def __repr__(self):
         tableString = self.getTablesAsString()
-        return ('Round: ' + str(self.roundNumber) + '\n'
-                + tableString)
+        return "Round: " + str(self.roundNumber) + "\n" + tableString
 
     def getTablesAsString(self):
-        tableString = ''
+        tableString = ""
         for i in range(len(self.tables)):
-            tableString += ('\tTable ' + str(i+1) + ':\n' + self.getPartnersAsString(i))
+            tableString += "\tTable " + str(i + 1) + ":\n" + self.getPartnersAsString(i)
         return tableString
 
     def getPartnersAsString(self, i):
-        return ('\t\tPair 1: ' + str(self.tables[i][0])
-              + '\n\t\tPair 2: ' + str(self.tables[i][1]) + '\n')
+        return (
+            "\t\tPair 1: "
+            + str(self.tables[i][0])
+            + "\n\t\tPair 2: "
+            + str(self.tables[i][1])
+            + "\n"
+        )
 
     def printLeaderboard(self):
-        sortedPlayers = sorted(self.players, key=lambda player: player.score, reverse=True)
+        sortedPlayers = sorted(
+            self.players, key=lambda player: player.score, reverse=True
+        )
         for i in range(len(self.players)):
-            print('#' + str(i+1) + ':', str(sortedPlayers[i]) + '\n')
+            print("#" + str(i + 1) + ":", str(sortedPlayers[i]) + "\n")
 
     def printStatus(self):
         print("\n" * 100)
         self.printLeaderboard()
-        print('\n')
+        print("\n")
         print(self)
 
     def getPlayer(self, player):
@@ -47,15 +53,17 @@ class Tournament:
 
     def randomizePartners(self):
         random.shuffle(self.players)
-        for i in range (int(len(self.players) / 2)):
-            self.partners.append([self.players[i], self.players[i + int(len(self.players) / 2)]])
+        for i in range(int(len(self.players) / 2)):
+            self.partners.append(
+                [self.players[i], self.players[i + int(len(self.players) / 2)]]
+            )
 
     def randomizeTables(self):
         random.shuffle(self.partners)
         for i in range(0, len(self.partners), 2):
             self.tables.append([self.partners[i], self.partners[i + 1]])
 
-    def nextRound(self, scores):    # Scores is a list of scores in order of the partners
+    def nextRound(self, scores):  # Scores is a list of scores in order of the partners
         self.roundNumber += 1
         self.updateScores(scores)
         self.updateTables(scores)
