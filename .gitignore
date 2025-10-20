@@ -77,5 +77,4 @@ out/
 # ==========================
 /frontend/package-lock.json
 /frontend/package.json
-/frontend/public/
 /frontend/node_modules/
