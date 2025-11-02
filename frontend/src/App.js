@@ -1,47 +1,55 @@
-import React from 'react'
-import { Box, Typography, Stack, Container } from '@mui/material';
+import React from 'react';
+import { Box, Typography, Container, Divider } from '@mui/material';
 
 function App() {
   return (
-    <Container>
-      <Box sx={{ textAlign: 'center', margin: '20px' }}>
-        <Typography variant="h3">Euchre Tournament Scores</Typography>
+    <Container sx={{ textAlign: 'center', mt: 5 }}>
+      <Typography variant="h3" sx={{ mb: 2 }}>
+        Euchre Tournament Scores
+      </Typography>
+
+      <Box sx={{ position: 'relative', mb: 2 }}>
+        <Divider
+          variant="fullWidth"
+          sx={{ borderBottomWidth: 3 }}
+        />
+
+        <Divider
+          orientation="vertical"
+          sx={{
+            position: 'absolute',
+            left: '50%',
+            height: '100px',
+            borderRightWidth: 3,
+          }}
+        />
       </Box>
-      <Stack 
-        direction="row"
-        spacing={25}
+
+      <Box
         sx={{
-          width: '100%',
+          display: 'flex',
           justifyContent: 'space-between',
+          width: '100%',
         }}
       >
         <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: '2px solid #000',
-            borderRadius: 2,
-            width: '100%',
-            height: '100%',
+            flex: 1,
+            textAlign: 'center',
           }}
         >
           <Typography variant="h6">Leaderboard</Typography>
         </Box>
+
         <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            border: '2px solid #000',
-            borderRadius: 2,
-            width: '100%',
-            height: '100%',
+            flex: 1,
+            textAlign: 'center',
           }}
         >
           <Typography variant="h6">Matchups</Typography>
         </Box>
-      </Stack>
+      </Box>
     </Container>
   );
 }
