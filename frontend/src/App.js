@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Typography, Container, Divider, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 import AddPlayerModal from './AddPlayer';
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
 
   const handleAddPlayer = (name) => {
     setPlayers((prev) => [...prev, {name, points: 0}]);
+  };
+
+  const handleDeletePlayer = (index) => {
+    setPlayers(players.filter((_, idx) => idx !== index));
   };
 
   return (
@@ -62,9 +67,27 @@ function App() {
 
           <Box sx={{ mt: 2 }}>
             {players.map((player, index) => (
-              <Typography key={index} sx={{ mt: 1 }}>
-                {player.name} - {player.points}
-              </Typography>
+              <Box 
+                key={index} 
+                sx={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 1,
+                  mt: 1,
+                  ml: -5,
+                }}
+              >
+                <IconButton
+                  size="small"
+                  onClick={() => handleDeletePlayer(index)}
+                >
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+                <Typography>
+                  {player.name} - {player.points}
+                </Typography>
+              </Box>
             ))}
           </Box>
         </Box>
