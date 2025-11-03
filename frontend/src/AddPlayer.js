@@ -14,12 +14,13 @@ function AddPlayerModal({ open, handleAddClose }) {
     >
       <Box
         sx={{
-          bgcolor: 'background.paper',
+          bgcolor: 'lightgray',
           p: 4,
           borderRadius: 2,
           boxShadow: 24,
           width: 400,
           textAlign: 'center',
+          border: '3px solid red',
         }}
       >
         <Typography id="add-leaderboard-modal" variant="h6" sx={{ mb: 2 }}>
