@@ -1,7 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 import { Box, Typography, Modal, Button, TextField } from '@mui/material';
 
-function AddPlayerModal({ open, handleAddClose }) {
+function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
+  const [name, setName] = useState('');
+
+  const handleAdd = () => {
+    if (name.trim()) {
+      onAddPlayer(name.trim());
+      setName('');
+      handleAddClose();
+    }
+  };
+
   return (
     <Modal
       open={open}
@@ -31,15 +41,13 @@ function AddPlayerModal({ open, handleAddClose }) {
           label="Name"
           variant="outlined"
           fullWidth
+          value = {name}
+          onChange={(e) => setName(e.target.value)}
           sx={{
             mb: 3,
-            '& label.Mui-focused': {
-              color: 'red',
-            },
+            '& label.Mui-focused': { color: 'red' },
             '& .MuiOutlinedInput-root': {
-              '&.Mui-focused fieldset': {
-                borderColor: 'red',
-              },
+              '&.Mui-focused fieldset': { borderColor: 'red' },
             },
           }}
         />
@@ -47,13 +55,11 @@ function AddPlayerModal({ open, handleAddClose }) {
         <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
           <Button
             variant="contained"
-            onClick={handleAddClose}
+            onClick={handleAdd}
             sx={{
               backgroundColor: 'red',
               color: 'black',
-              '&:hover': {
-                backgroundColor: '#cc0000',
-              },
+              '&:hover': { backgroundColor: '#cc0000' },
             }}
           >
             Add

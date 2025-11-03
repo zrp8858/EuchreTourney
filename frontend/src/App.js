@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, Typography, Container, Divider, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import AddPlayerModal from './AddPlayer';
 
 function App() {
+  const [players, setPlayers] = useState([]);
+
   const [addOpen, setAddOpen] = useState(false);
 
   const handleAddOpen = () => setAddOpen(true);
   const handleAddClose = () => setAddOpen(false);
+
+  const handleAddPlayer = (name) => {
+    setPlayers((prev) => [...prev, {name, points: 0}]);
+  };
 
   return (
     <Container sx={{ textAlign: 'center', mt: 5 }}>
@@ -53,6 +59,14 @@ function App() {
               <AddIcon fontSize="small" />
             </IconButton>
           </Box>
+
+          <Box sx={{ mt: 2 }}>
+            {players.map((player, index) => (
+              <Typography key={index} sx={{ mt: 1 }}>
+                {player.name} - {player.points}
+              </Typography>
+            ))}
+          </Box>
         </Box>
 
         <Box sx={{ flex: 1, textAlign: 'center' }}>
@@ -60,7 +74,11 @@ function App() {
         </Box>
       </Box>
 
-      <AddPlayerModal open={addOpen} handleAddClose={handleAddClose} />
+      <AddPlayerModal 
+        open={addOpen}
+        handleAddClose={handleAddClose} 
+        onAddPlayer={handleAddPlayer}
+      />
     </Container>
   );
 }
