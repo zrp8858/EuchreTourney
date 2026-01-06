@@ -26,17 +26,10 @@ cd frontend
 ```
 
 #### 2.2. Install all dependencies
-Run the following command in the frontend directory:
+Run the following command in the frontend directory to install all dependencies listed in the **package.json** file:
 
 ```bash
-npm install react react-dom
-```
-
-#### 2.3. Install MUI components
-Run the following command to install all MUI components:
-
-```bash
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
+npm install
 ```
 
 # Running the Application
