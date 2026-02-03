@@ -8,7 +8,7 @@ import EditPointsModal from "./EditPoints";
 
 function App() {
   const [players, setPlayers] = useState([]);
-  const [index, setIndex] = useState(null);
+  const [selectedPlayerId, setSelectedPlayerId] = useState(null);
 
   const [addOpen, setAddOpen] = useState(false);
   const [editPointsOpen, setEditPointsOpen] = useState(false);
@@ -19,29 +19,31 @@ function App() {
   const handleEditPointsOpen = () => setEditPointsOpen(true);
   const handleEditPointsClose = () => {
     setEditPointsOpen(false);
-    setIndex(null);
+    setSelectedPlayerId(null);
   };
 
   const handleAddPlayer = (name) => {
-    setPlayers((prev) => [...prev, { name, points: 0 }]);
+    setPlayers((prev) => [...prev, { id: crypto.randomUUID(), name, points: 0 }]);
   };
 
-  const handleDeletePlayer = (index) => {
-    setPlayers(players.filter((_, idx) => idx !== index));
+  const handleDeletePlayer = (id) => {
+    setPlayers((prev) => prev.filter((player) => player.id !== id));
   };
 
   const handleEditPoints = (points) => {
-    setPlayers((prev) =>
-      prev.map((player, idx) =>
-        idx === index ? { ...player, points: points } : player
-      )
-    );
+    setPlayers((prev) => {
+      const updated = prev.map((player) =>
+        player.id === selectedPlayerId ? { ...player, points } : player
+      );
+
+      return [...updated].sort((a, b) => b.points - a.points);
+    });
   };
 
   return (
     <Container sx={{ textAlign: "center", mt: 5 }}>
       <Typography variant="h3" sx={{ mb: 2 }}>
-        Euchre Tournament Pointss
+        Euchre Tournament Points
       </Typography>
 
       <Box sx={{ position: "relative", mb: 2 }}>
@@ -93,9 +95,9 @@ function App() {
           </Box>
 
           <Box sx={{ mt: 2 }}>
-            {players.map((player, index) => (
+            {players.map((player) => (
               <Box
-                key={index}
+                key={player.id}
                 sx={{
                   display: "grid",
                   gridTemplateColumns: "150px auto 150px",
@@ -106,7 +108,7 @@ function App() {
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <IconButton
                     size="small"
-                    onClick={() => handleDeletePlayer(index)}
+                    onClick={() => handleDeletePlayer(player.id)}
                   >
                     <DeleteIcon fontSize="small" />
                   </IconButton>
@@ -120,7 +122,7 @@ function App() {
                   <IconButton
                     size="small"
                     onClick={() => {
-                      setIndex(index);
+                      setSelectedPlayerId(player.id);
                       handleEditPointsOpen();
                     }}
                   >
