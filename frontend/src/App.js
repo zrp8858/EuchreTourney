@@ -42,9 +42,9 @@ function App() {
   };
 
   return (
-    <Container sx={{ textAlign: "center", mt: 5 }}>
-      <Typography variant="h3" sx={{ mb: 2 }}>
-        Euchre Tournament Points
+    <Container sx={{ textAlign: "center", mt: 3 }}>
+      <Typography variant="h2" sx={{ mb: 3, fontFamily: "Blue Winter" }}>
+        Euchre Tournament Scoreboard
       </Typography>
 
       <Box sx={{ position: "relative", mb: 2 }}>
@@ -77,7 +77,7 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h6">Leaderboard</Typography>
+            <Typography variant="h5" sx={{ fontFamily: "Blue Winter" }}>Leaderboard</Typography>
 
             <IconButton
               size="small"
@@ -85,10 +85,11 @@ function App() {
               sx={{
                 position: "absolute",
                 right: "50%",
-                transform: "translateX(90px)",
+                transform: "translateX(110px)",
                 border: "1px solid",
                 width: 20,
                 height: 20,
+                color: "#3b3b3b",
               }}
             >
               <AddIcon fontSize="small" />
@@ -145,7 +146,7 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h6">Matchups</Typography>
+            <Typography variant="h5" sx={{ fontFamily: "Blue Winter" }}>Matchups</Typography>
 
             <IconButton
               size="small"
@@ -153,10 +154,11 @@ function App() {
               sx={{
                 position: "absolute",
                 right: "50%",
-                transform: "translateX(75px)",
+                transform: "translateX(90px)",
                 border: "1px solid",
                 width: 20,
                 height: 20,
+                color: "#3b3b3b",
               }}
             >
               <ReplayIcon fontSize="small" />
