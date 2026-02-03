@@ -3,6 +3,7 @@ import { Box, Typography, Container, Divider, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import ReplayIcon from '@mui/icons-material/Replay';
 import AddPlayerModal from "./AddPlayer";
 import EditPointsModal from "./EditPoints";
 
@@ -135,7 +136,32 @@ function App() {
         </Box>
 
         <Box sx={{ flex: 1, textAlign: "center" }}>
-          <Typography variant="h6">Matchups</Typography>
+          <Box
+            sx={{
+              position: "relative",
+              height: 32,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h6">Matchups</Typography>
+
+            <IconButton
+              size="small"
+              // onClick={handleGenerateMatchups}
+              sx={{
+                position: "absolute",
+                right: "50%",
+                transform: "translateX(75px)",
+                border: "1px solid",
+                width: 20,
+                height: 20,
+              }}
+            >
+              <ReplayIcon fontSize="small" />
+            </IconButton>
+          </Box>
         </Box>
       </Box>
 
