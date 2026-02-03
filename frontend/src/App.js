@@ -54,7 +54,7 @@ function App() {
           sx={{
             position: "absolute",
             left: "50%",
-            height: "100px",
+            height: "550px",
             borderRightWidth: 3,
           }}
         />
