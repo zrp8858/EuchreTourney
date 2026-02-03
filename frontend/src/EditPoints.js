@@ -32,7 +32,7 @@ function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
           boxShadow: 24,
           width: 400,
           textAlign: "center",
-          border: "3px solid red",
+          border: "3px solid #950606",
         }}
       >
         <Typography id="edit-points-leaderboard-modal" variant="h6" sx={{ mb: 2 }}>
@@ -47,9 +47,9 @@ function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
           onChange={(e) => setPoints(e.target.value)}
           sx={{
             mb: 3,
-            "& label.Mui-focused": { color: "red" },
+            "& label.Mui-focused": { color: "#950606" },
             "& .MuiOutlinedInput-root": {
-              "&.Mui-focused fieldset": { borderColor: "red" },
+              "&.Mui-focused fieldset": { borderColor: "#950606" },
             },
           }}
         />
@@ -59,7 +59,7 @@ function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
             variant="contained"
             onClick={handleEditPoints}
             sx={{
-              backgroundColor: "red",
+              backgroundColor: "#950606",
               color: "black",
               "&:hover": { backgroundColor: "#cc0000" },
             }}
@@ -70,11 +70,11 @@ function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
             variant="outlined"
             onClick={handleEditPointsClose}
             sx={{
-              borderColor: "red",
+              borderColor: "#950606",
               color: "black",
               "&:hover": {
-                borderColor: "#cc0000",
-                backgroundColor: "rgba(255,0,0,0.1)",
+                borderColor: "#950606",
+                backgroundColor: "rgba(204,0,0,0.1)",
               },
             }}
           >

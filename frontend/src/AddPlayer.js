@@ -30,7 +30,7 @@ function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
           boxShadow: 24,
           width: 400,
           textAlign: "center",
-          border: "3px solid red",
+          border: "3px solid #950606",
         }}
       >
         <Typography id="add-leaderboard-modal" variant="h6" sx={{ mb: 2 }}>
@@ -45,9 +45,9 @@ function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
           onChange={(e) => setName(e.target.value)}
           sx={{
             mb: 3,
-            "& label.Mui-focused": { color: "red" },
+            "& label.Mui-focused": { color: "#950606" },
             "& .MuiOutlinedInput-root": {
-              "&.Mui-focused fieldset": { borderColor: "red" },
+              "&.Mui-focused fieldset": { borderColor: "#950606" },
             },
           }}
         />
@@ -57,7 +57,7 @@ function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
             variant="contained"
             onClick={handleAdd}
             sx={{
-              backgroundColor: "red",
+              backgroundColor: "#950606",
               color: "black",
               "&:hover": { backgroundColor: "#cc0000" },
             }}
@@ -68,11 +68,11 @@ function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
             variant="outlined"
             onClick={handleAddClose}
             sx={{
-              borderColor: "red",
+              borderColor: "#950606",
               color: "black",
               "&:hover": {
-                borderColor: "#cc0000",
-                backgroundColor: "rgba(255,0,0,0.1)",
+                borderColor: "#950606",
+                backgroundColor: "rgba(204,0,0,0.1)",
               },
             }}
           >
