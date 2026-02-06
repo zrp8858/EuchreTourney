@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { Box, Typography, Modal, Button, TextField } from "@mui/material";
 
-function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
+type EditPointsModalProps = {
+  open: boolean;
+  handleEditPointsClose: () => void;
+  onEditPoints: (points: number) => void;
+};
+
+function EditPointsModal({
+  open,
+  handleEditPointsClose,
+  onEditPoints,
+}: EditPointsModalProps) {
   const [points, setPoints] = useState("0");
 
   const handleEditPoints = () => {
@@ -9,7 +19,7 @@ function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
 
     if (Number.isInteger(value)) {
       onEditPoints(value);
-      setPoints(0);
+      setPoints("0");
       handleEditPointsClose();
     }
   };

@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { Box, Typography, Modal, Button, TextField } from "@mui/material";
 
-function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
+type AddPlayerModalProps = {
+  open: boolean;
+  handleAddClose: () => void;
+  onAddPlayer: (name: string) => void;
+};
+
+function AddPlayerModal({
+  open,
+  handleAddClose,
+  onAddPlayer,
+}: AddPlayerModalProps) {
   const [name, setName] = useState("");
 
   const handleAdd = () => {

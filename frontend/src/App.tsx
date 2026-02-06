@@ -1,18 +1,19 @@
 import { useState } from "react";
+import { Player } from "./types";
 import { Box, Typography, Container, Divider, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import ReplayIcon from "@mui/icons-material/Replay";
-import AddPlayerModal from "./AddPlayer";
-import EditPointsModal from "./EditPoints";
+import AddPlayerModal from "./AddPlayer.tsx";
+import EditPointsModal from "./EditPoints.tsx";
 
 function App() {
-  const [players, setPlayers] = useState([]);
-  const [selectedPlayerId, setSelectedPlayerId] = useState(null);
+  const [players, setPlayers] = useState<Player[]>([]);
+  const [selectedPlayerId, setSelectedPlayerId] = useState<string | null>(null);
 
-  const [addOpen, setAddOpen] = useState(false);
-  const [editPointsOpen, setEditPointsOpen] = useState(false);
+  const [addOpen, setAddOpen] = useState<boolean>(false);
+  const [editPointsOpen, setEditPointsOpen] = useState<boolean>(false);
 
   const handleAddOpen = () => setAddOpen(true);
   const handleAddClose = () => setAddOpen(false);
@@ -23,25 +24,25 @@ function App() {
     setSelectedPlayerId(null);
   };
 
-  const handleAddPlayer = (name) => {
+  const handleAddPlayer = (name: string) => {
     setPlayers((prev) => [
       ...prev,
       { id: crypto.randomUUID(), name, points: 0 },
     ]);
   };
 
-  const handleDeletePlayer = (id) => {
+  const handleDeletePlayer = (id: string) => {
     setPlayers((prev) => prev.filter((player) => player.id !== id));
   };
 
-  const handleEditPoints = (points) => {
-    setPlayers((prev) => {
-      const updated = prev.map((player) =>
-        player.id === selectedPlayerId ? { ...player, points } : player,
-      );
-
-      return [...updated].sort((a, b) => b.points - a.points);
-    });
+  const handleEditPoints = (points: number) => {
+    setPlayers((prev) =>
+      [...prev]
+        .map((player) =>
+          player.id === selectedPlayerId ? { ...player, points } : player,
+        )
+        .sort((a, b) => b.points - a.points),
+    );
   };
 
   return (
