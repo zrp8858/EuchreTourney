@@ -58,22 +58,19 @@ function AddPlayerModal({ open, handleAddClose, onAddPlayer }) {
             onClick={handleAdd}
             sx={{
               backgroundColor: "#950606",
-              color: "black",
+              color: "white",
               "&:hover": { backgroundColor: "#cc0000" },
             }}
           >
             Add
           </Button>
           <Button
-            variant="outlined"
+            variant="contained"
             onClick={handleAddClose}
             sx={{
-              borderColor: "#950606",
-              color: "black",
-              "&:hover": {
-                borderColor: "#950606",
-                backgroundColor: "rgba(204,0,0,0.1)",
-              },
+              backgroundColor: "#950606",
+              color: "white",
+              "&:hover": { backgroundColor: "#cc0000" },
             }}
           >
             Cancel
