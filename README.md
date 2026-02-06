@@ -25,21 +25,11 @@ Once in the app, navigate to the frontend directory by running the command from 
 cd frontend
 ```
 
-#### 2.2. Install Node Package Manager
-Run the following command in the frontend directory to install **npm**:
+#### 2.2. Install dependencies
+Run the following command in the frontend directory to install all dependencies listed in the **package.json** file:
 
 ```bash
 npm install
-```
-
-#### 2.3
-Run the following command in the frontend directory to install all dependencies listed in the **package.json** file
-```bash
-npm install react react-dom react-scripts @mui/material @mui/icons-material @emotion/react @emotion/styled
-```
-
-```bash
-npm install --save-dev typescript @types/react @types/react-dom
 ```
 
 # Running the Application
