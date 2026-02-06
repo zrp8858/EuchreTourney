@@ -35,7 +35,11 @@ function EditPointsModal({ open, handleEditPointsClose, onEditPoints }) {
           border: "3px solid #950606",
         }}
       >
-        <Typography id="edit-points-leaderboard-modal" variant="h6" sx={{ mb: 2 }}>
+        <Typography
+          id="edit-points-leaderboard-modal"
+          variant="h6"
+          sx={{ mb: 2 }}
+        >
           Edit Points
         </Typography>
 

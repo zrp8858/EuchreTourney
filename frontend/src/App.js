@@ -3,7 +3,7 @@ import { Box, Typography, Container, Divider, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import ReplayIcon from '@mui/icons-material/Replay';
+import ReplayIcon from "@mui/icons-material/Replay";
 import AddPlayerModal from "./AddPlayer";
 import EditPointsModal from "./EditPoints";
 
@@ -24,7 +24,10 @@ function App() {
   };
 
   const handleAddPlayer = (name) => {
-    setPlayers((prev) => [...prev, { id: crypto.randomUUID(), name, points: 0 }]);
+    setPlayers((prev) => [
+      ...prev,
+      { id: crypto.randomUUID(), name, points: 0 },
+    ]);
   };
 
   const handleDeletePlayer = (id) => {
@@ -34,7 +37,7 @@ function App() {
   const handleEditPoints = (points) => {
     setPlayers((prev) => {
       const updated = prev.map((player) =>
-        player.id === selectedPlayerId ? { ...player, points } : player
+        player.id === selectedPlayerId ? { ...player, points } : player,
       );
 
       return [...updated].sort((a, b) => b.points - a.points);
@@ -43,12 +46,16 @@ function App() {
 
   return (
     <Container sx={{ textAlign: "center", mt: 3 }}>
+      {/* Title */}
       <Typography variant="h2" sx={{ mb: 3, fontFamily: "Blue Winter" }}>
         Euchre Tournament Scoreboard
       </Typography>
 
       <Box sx={{ position: "relative", mb: 2 }}>
+        {/* Horizontal Divider */}
         <Divider variant="fullWidth" sx={{ borderBottomWidth: 3 }} />
+
+        {/* Vertical Separator */}
         <Divider
           orientation="vertical"
           sx={{
@@ -59,6 +66,7 @@ function App() {
         />
       </Box>
 
+      {/* Main Display Grid */}
       <Box
         sx={{
           display: "grid",
@@ -68,13 +76,15 @@ function App() {
           zIndex: 1,
         }}
       >
-        <Box 
+        {/* Leaderboard Column */}
+        <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
+          {/* Header */}
           <Box
             sx={{
               position: "relative",
@@ -84,7 +94,12 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: "Blue Winter", color: "#950606" }}>Leaderboard</Typography>
+            <Typography
+              variant="h5"
+              sx={{ fontFamily: "Blue Winter", color: "#950606" }}
+            >
+              Leaderboard
+            </Typography>
 
             <IconButton
               size="small"
@@ -96,13 +111,14 @@ function App() {
                 border: "1px solid",
                 width: 20,
                 height: 20,
-                color: "#3b3b3b"
+                color: "#3b3b3b",
               }}
             >
               <AddIcon fontSize="small" />
             </IconButton>
           </Box>
 
+          {/* Player List */}
           <Box sx={{ mt: 2, width: "100%" }}>
             {players.map((player) => (
               <Box
@@ -123,7 +139,9 @@ function App() {
                   </IconButton>
                 </Box>
 
-                <Typography sx={{ textAlign: "center", fontFamily: "Blue Winter" }}>
+                <Typography
+                  sx={{ textAlign: "center", fontFamily: "Blue Winter" }}
+                >
                   {player.name} - {player.points}
                 </Typography>
 
@@ -143,13 +161,15 @@ function App() {
           </Box>
         </Box>
 
-        <Box 
+        {/* Matchups Column */}
+        <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
+          {/* Header */}
           <Box
             sx={{
               position: "relative",
@@ -159,7 +179,12 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: "Blue Winter", color: "#950606" }}>Matchups</Typography>
+            <Typography
+              variant="h5"
+              sx={{ fontFamily: "Blue Winter", color: "#950606" }}
+            >
+              Matchups
+            </Typography>
 
             <IconButton
               size="small"
