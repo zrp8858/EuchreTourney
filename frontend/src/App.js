@@ -52,9 +52,8 @@ function App() {
         <Divider
           orientation="vertical"
           sx={{
-            position: "absolute",
+            position: "fixed",
             left: "50%",
-            height: "550px",
             borderRightWidth: 3,
           }}
         />
@@ -62,12 +61,20 @@ function App() {
 
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
           width: "100%",
+          position: "relative",
+          zIndex: 1,
         }}
       >
-        <Box sx={{ flex: 1, textAlign: "center" }}>
+        <Box 
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Box
             sx={{
               position: "relative",
@@ -77,7 +84,7 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: "Blue Winter" }}>Leaderboard</Typography>
+            <Typography variant="h5" sx={{ fontFamily: "Blue Winter", color: "#950606" }}>Leaderboard</Typography>
 
             <IconButton
               size="small"
@@ -89,14 +96,14 @@ function App() {
                 border: "1px solid",
                 width: 20,
                 height: 20,
-                color: "#3b3b3b",
+                color: "#3b3b3b"
               }}
             >
               <AddIcon fontSize="small" />
             </IconButton>
           </Box>
 
-          <Box sx={{ mt: 2 }}>
+          <Box sx={{ mt: 2, width: "100%" }}>
             {players.map((player) => (
               <Box
                 key={player.id}
@@ -116,7 +123,7 @@ function App() {
                   </IconButton>
                 </Box>
 
-                <Typography sx={{ textAlign: "center" }}>
+                <Typography sx={{ textAlign: "center", fontFamily: "Blue Winter" }}>
                   {player.name} - {player.points}
                 </Typography>
 
@@ -136,7 +143,13 @@ function App() {
           </Box>
         </Box>
 
-        <Box sx={{ flex: 1, textAlign: "center" }}>
+        <Box 
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Box
             sx={{
               position: "relative",
@@ -146,7 +159,7 @@ function App() {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h5" sx={{ fontFamily: "Blue Winter" }}>Matchups</Typography>
+            <Typography variant="h5" sx={{ fontFamily: "Blue Winter", color: "#950606" }}>Matchups</Typography>
 
             <IconButton
               size="small"
